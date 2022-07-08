@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="808.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.InventoryController">
+    <Pane layoutX="14.0" layoutY="80.0" prefHeight="253.0" prefWidth="381.0" style="-fx-border-width: 1; -fx-border-style: solid; -fx-border-radius: 10;">
+        <TableView fx:id="partTable" layoutX="23.0" layoutY="51.0" prefHeight="151.0" prefWidth="336.0">
+            <placeholder>
+                <Label>No Parts Found</Label>
+            </placeholder>
+            <columns>
+                <TableColumn fx:id="PartId" prefWidth="72.0" text="Part ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="partName" prefWidth="78.0" text="Part Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="PartInv" prefWidth="108.0" text="Inventory Level">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="stock" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="partPrice" prefWidth="77.0" text="Price/Unit">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="price" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <TextField fx:id="partSearch" layoutX="212.0" layoutY="14.0" onKeyReleased="#onPartSearch" promptText="Part ID or Name" />
+        <Button fx:id="deletePart" layoutX="301.0" layoutY="214.0" mnemonicParsing="false" onAction="#onRemovePartClick" text="Delete" />
+        <Button fx:id="modifyPart" layoutX="238.0" layoutY="214.0" mnemonicParsing="false" onAction="#onModifyPartClick" text="Modify" />
+        <Button fx:id="addPart" layoutX="191.0" layoutY="214.0" mnemonicParsing="false" onAction="#onAddPartClick" text="Add" />
+    </Pane>
+    <Button fx:id="exitButton" layoutX="727.0" layoutY="358.0" mnemonicParsing="false" onAction="#onExitButtonClick" text="Exit" />
+    <Pane layoutX="413.0" layoutY="80.0" prefHeight="253.0" prefWidth="381.0" style="-fx-border-style: solid; -fx-border-radius: 10; -fx-border-width: 1;">
+        <TableView fx:id="productTable" layoutX="23.0" layoutY="51.0" prefHeight="151.0" prefWidth="336.0">
+            <placeholder>
+                <Label>No Products Found</Label>
+            </placeholder>
+            <columns>
+                <TableColumn fx:id="ProductId" prefWidth="72.0" text="Product ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="productName" prefWidth="94.0" text="Product Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="name" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="productInv" prefWidth="100.0" text="Inventory Level">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="stock" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="productPrice" prefWidth="69.0" text="Price/Unit">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="price" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <TextField fx:id="productSearch" layoutX="208.0" layoutY="14.0" onKeyReleased="#onProductSearch" promptText="Product ID or Name" />
+        <Button fx:id="deleteProduct" layoutX="292.0" layoutY="214.0" mnemonicParsing="false" onAction="#onRemoveProductClick" text="Delete" />
+        <Button fx:id="modifyProduct" layoutX="229.0" layoutY="214.0" mnemonicParsing="false" onAction="#onModifyProductClick" text="Modify" />
+        <Button fx:id="addProduct" layoutX="182.0" layoutY="214.0" mnemonicParsing="false" onAction="#onAddProductClick" text="Add" />
+    </Pane>
+   <Label layoutX="24.0" layoutY="34.0" prefHeight="17.0" prefWidth="270.0" text="Inventory Management System">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Label>
+   <Label fx:id="MessageLabel" layoutX="14.0" layoutY="362.0" />
+</Pane>
